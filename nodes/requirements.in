@@ -1,0 +1,9 @@
+torch==2.8.0
+torchvision==0.23.0
+torchaudio==2.8.0
+transformers==4.51.3
+accelerate
+diffusers
+safetensors
+numpy
+soundfile==0.14.0

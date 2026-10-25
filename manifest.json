@@ -1,0 +1,465 @@
+{
+  "schema": 1,
+  "id": "promboard.vibevoice-realtime",
+  "version": "1.0.0",
+  "name": "VibeVoice-Realtime-0.5B — 한 화자 빠른 목소리 (영어 · 한국어 등 실험 목소리)",
+  "description": "글을 읽어 한 화자의 목소리(WAV)를 빠르게 만든다. 공식 프리셋 목소리 25개(영어 7 + 한국어 · 일본어 · 독일어 등 9개 언어 실험 목소리 각 2)에서 고른다. 여러 화자가 주고받는 긴 대화 · 참조 목소리 복제는 'VibeVoice-1.5B' 플러그인을 쓴다(영어 · 중국어). Microsoft 공식 가중치 VibeVoice-Realtime-0.5B(2GB, MIT)와 공식 실행 코드를 쓴다. 공식 카드는 영어용이라고 적고, 다른 언어 목소리는 '실험'이다. 연구 목적 사용으로 한정된다.",
+  "author": "PromBoard",
+  "license": "Apache-2.0",
+  "app": ">=1.0.3",
+  "categories": [
+    "voice"
+  ],
+  "languages": [
+    "en",
+    "ko",
+    "ja",
+    "de",
+    "fr",
+    "it",
+    "nl",
+    "pl",
+    "pt",
+    "es"
+  ],
+  "repository": "https://github.com/promboard-app/vibevoice-realtime",
+  "icon": "icon.png",
+  "contents": [
+    "nodes"
+  ],
+  "licenseNotice": {
+    "conditions": "모델은 MIT 이지만 공식 카드가 연구 목적 사용으로 한정하고, 더 시험하지 않은 채 상업 · 실서비스에 쓰는 것을 권하지 않는다. 동의 없는 목소리 흉내 · 사칭, 실제 녹음처럼 꾸민 허위 정보, 실시간 음성 변조, 안전 장치(워터마크 등)를 피하는 일에 쓰지 않는다. 공식 카드는 영어만 지원한다고 적고, 다른 언어 목소리는 결과를 장담할 수 없는 실험이다. 공식 카드는 만든 소리마다 AI 안내 음성과 워터마크를 넣었다고 적지만, 이 플러그인이 쓰는 공식 실행 코드에는 그 기능이 없어 결과에 들어가지 않는다 — 소리를 공개할 때는 AI 로 만든 소리임을 직접 밝힌다.",
+    "url": "https://huggingface.co/microsoft/VibeVoice-Realtime-0.5B"
+  },
+  "nodes": [
+    {
+      "id": "vibevoice-realtime",
+      "label": "VibeVoice 실시간 목소리",
+      "description": "글을 이으면 한 화자의 목소리 WAV(24kHz)를 낸다. 목소리는 설정에서 고른다(참조 목소리 복제는 없다). 영어가 가장 안정적이고, 다른 언어 목소리는 실험이다.",
+      "inputs": [
+        {
+          "id": "text",
+          "type": "text",
+          "label": "읽을 글",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "id": "audio",
+          "type": "audio",
+          "label": "목소리"
+        }
+      ],
+      "settings": [
+        {
+          "id": "voice",
+          "label": "목소리",
+          "help": "공식 프리셋 목소리. '실험' 표시는 공식 카드가 영어 밖 언어로 탐색용으로 내놓은 목소리다 — 그 언어로 글을 쓴다.",
+          "type": "select",
+          "default": "en-Emma_woman",
+          "options": [
+            {
+              "value": "en-Carter_man",
+              "label": "영어 · 남 · Carter"
+            },
+            {
+              "value": "en-Davis_man",
+              "label": "영어 · 남 · Davis"
+            },
+            {
+              "value": "en-Emma_woman",
+              "label": "영어 · 여 · Emma"
+            },
+            {
+              "value": "en-Frank_man",
+              "label": "영어 · 남 · Frank"
+            },
+            {
+              "value": "en-Grace_woman",
+              "label": "영어 · 여 · Grace"
+            },
+            {
+              "value": "en-Mike_man",
+              "label": "영어 · 남 · Mike"
+            },
+            {
+              "value": "in-Samuel_man",
+              "label": "인도 영어 · 남 · Samuel"
+            },
+            {
+              "value": "kr-Spk0_woman",
+              "label": "한국어(실험) · 여 · Spk0"
+            },
+            {
+              "value": "kr-Spk1_man",
+              "label": "한국어(실험) · 남 · Spk1"
+            },
+            {
+              "value": "jp-Spk0_man",
+              "label": "일본어(실험) · 남 · Spk0"
+            },
+            {
+              "value": "jp-Spk1_woman",
+              "label": "일본어(실험) · 여 · Spk1"
+            },
+            {
+              "value": "de-Spk0_man",
+              "label": "독일어(실험) · 남 · Spk0"
+            },
+            {
+              "value": "de-Spk1_woman",
+              "label": "독일어(실험) · 여 · Spk1"
+            },
+            {
+              "value": "fr-Spk0_man",
+              "label": "프랑스어(실험) · 남 · Spk0"
+            },
+            {
+              "value": "fr-Spk1_woman",
+              "label": "프랑스어(실험) · 여 · Spk1"
+            },
+            {
+              "value": "it-Spk0_woman",
+              "label": "이탈리아어(실험) · 여 · Spk0"
+            },
+            {
+              "value": "it-Spk1_man",
+              "label": "이탈리아어(실험) · 남 · Spk1"
+            },
+            {
+              "value": "nl-Spk0_man",
+              "label": "네덜란드어(실험) · 남 · Spk0"
+            },
+            {
+              "value": "nl-Spk1_woman",
+              "label": "네덜란드어(실험) · 여 · Spk1"
+            },
+            {
+              "value": "pl-Spk0_man",
+              "label": "폴란드어(실험) · 남 · Spk0"
+            },
+            {
+              "value": "pl-Spk1_woman",
+              "label": "폴란드어(실험) · 여 · Spk1"
+            },
+            {
+              "value": "pt-Spk0_woman",
+              "label": "포르투갈어(실험) · 여 · Spk0"
+            },
+            {
+              "value": "pt-Spk1_man",
+              "label": "포르투갈어(실험) · 남 · Spk1"
+            },
+            {
+              "value": "sp-Spk0_woman",
+              "label": "스페인어(실험) · 여 · Spk0"
+            },
+            {
+              "value": "sp-Spk1_man",
+              "label": "스페인어(실험) · 남 · Spk1"
+            }
+          ]
+        },
+        {
+          "id": "cfg",
+          "label": "설명 따르기 (CFG)",
+          "help": "클수록 글 · 목소리를 더 강하게 따른다. 공식 예제 기본값은 1.5 다.",
+          "type": "number",
+          "default": 1.5,
+          "min": 1,
+          "max": 3,
+          "step": 0.1
+        },
+        {
+          "id": "steps",
+          "label": "확산 단계",
+          "help": "소리 조각마다 확산 단계 수. 많을수록 느리고 조금 더 깨끗하다. 공식 예제는 5 다.",
+          "type": "integer",
+          "default": 5,
+          "min": 2,
+          "max": 20
+        },
+        {
+          "id": "seed",
+          "label": "시드",
+          "help": "같은 시드 · 같은 입력이면 같은 결과가 나온다.",
+          "type": "integer",
+          "default": 42,
+          "min": 0,
+          "max": 2147483647
+        }
+      ]
+    }
+  ],
+  "python": {
+    "version": "3.12",
+    "torch": "host",
+    "lock": {
+      "win": "nodes/requirements-win.txt",
+      "linux": "nodes/requirements-linux.txt",
+      "mac": "nodes/requirements-mac.txt"
+    },
+    "entry": "nodes.main"
+  },
+  "gpu": {
+    "vramMinMb": 4096,
+    "cpuAllowed": false
+  },
+  "permissions": {},
+  "requires": {
+    "models": [
+      {
+        "source": "huggingface",
+        "repo": "microsoft/VibeVoice-Realtime-0.5B",
+        "revision": "6bce5f06044837fe6d2c5d7a71a84f0416bd57e4",
+        "license": "MIT",
+        "files": [
+          {
+            "path": "config.json",
+            "bytes": 2117,
+            "sha256": "caee2691e790b04054bbe14a753b40149fa7c0c16fadb58d9adf5412343dcf57"
+          },
+          {
+            "path": "model.safetensors",
+            "bytes": 2035332888,
+            "sha256": "7758b150b8139deb48ac1ff6f181f745c8fedd5511232fd974b3eb217d83b514"
+          },
+          {
+            "path": "preprocessor_config.json",
+            "bytes": 360,
+            "sha256": "ebf514b5d30a012e5ae00d9a19d01e735e35b27768c3926d980815db8fa742e5"
+          }
+        ]
+      },
+      {
+        "source": "huggingface",
+        "repo": "Qwen/Qwen2.5-0.5B",
+        "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+        "license": "Apache-2.0",
+        "files": [
+          {
+            "path": "merges.txt",
+            "bytes": 1671839,
+            "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3"
+          },
+          {
+            "path": "tokenizer.json",
+            "bytes": 7031645,
+            "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+          },
+          {
+            "path": "tokenizer_config.json",
+            "bytes": 7228,
+            "sha256": "c91efca15ceff6e9ee9424db58a6f59cd41294e550a86cbd07e3c1fb500b34f9"
+          },
+          {
+            "path": "vocab.json",
+            "bytes": 2776833,
+            "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+          }
+        ]
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/en-Carter_man.pt",
+        "path": "voices/en-Carter_man.pt",
+        "bytes": 4256002,
+        "sha256": "a7bfdf1cd4939c22469bcfc6f427ae9c4467b3df46c2c14303a39c294cfc6897",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/en-Davis_man.pt",
+        "path": "voices/en-Davis_man.pt",
+        "bytes": 2471258,
+        "sha256": "67561d63bfa2153616e4c02fd967007c182593fc53738a6ad94bf5f84e8832ac",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/en-Emma_woman.pt",
+        "path": "voices/en-Emma_woman.pt",
+        "bytes": 3343090,
+        "sha256": "75b15c481e0d848991f1789620aa9929c583ec2c5f701f8152362cf74498bbf8",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/en-Frank_man.pt",
+        "path": "voices/en-Frank_man.pt",
+        "bytes": 3359578,
+        "sha256": "acaa8f1a4f46a79f8f5660cfb7a3af06ef473389319df7debc07376fdc840e47",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/en-Grace_woman.pt",
+        "path": "voices/en-Grace_woman.pt",
+        "bytes": 2772466,
+        "sha256": "5f0ef02a3f3cace04cf721608b65273879466bb15fe4044e46ec6842190f6bb1",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/en-Mike_man.pt",
+        "path": "voices/en-Mike_man.pt",
+        "bytes": 2016234,
+        "sha256": "afb64b580fbc6fab09af04572bbbd2b3906ff8ed35a28731a90b8681e47bdc89",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/in-Samuel_man.pt",
+        "path": "voices/in-Samuel_man.pt",
+        "bytes": 3782658,
+        "sha256": "b6ec5e8cde4006aa3f26fde0422124f3296f83f5738b5b4506268855a305cb06",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/kr-Spk0_woman.pt",
+        "path": "voices/kr-Spk0_woman.pt",
+        "bytes": 4154002,
+        "sha256": "c6d15b8d66f8c271655d000b5923cb33a9b564bf84484a82b10431dc1a2fafef",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/kr-Spk1_man.pt",
+        "path": "voices/kr-Spk1_man.pt",
+        "bytes": 5865138,
+        "sha256": "65514854c7ffc7080aba964cf40811822358b19397132ddaf9b3cdb168c394f3",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/jp-Spk0_man.pt",
+        "path": "voices/jp-Spk0_man.pt",
+        "bytes": 4668234,
+        "sha256": "4881286aa2fe14e65a800d64a7ae7cd0a7ccda53ff6de88a8d6590980c20e16d",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/jp-Spk1_woman.pt",
+        "path": "voices/jp-Spk1_woman.pt",
+        "bytes": 4637994,
+        "sha256": "d7a3f5ca602912152c483516bc0198ea13765affd6fbf16fc1bed5e91e1cbbda",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/de-Spk0_man.pt",
+        "path": "voices/de-Spk0_man.pt",
+        "bytes": 7039666,
+        "sha256": "ba2c3e06c52ca02a851326d8a354188c8cafe4543c717d8beb8b64fe3466913a",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/de-Spk1_woman.pt",
+        "path": "voices/de-Spk1_woman.pt",
+        "bytes": 5290778,
+        "sha256": "11b4fa505f7d636af7047632793fe639b1e826d46fc6c00d64dacdcf0805ad72",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/fr-Spk0_man.pt",
+        "path": "voices/fr-Spk0_man.pt",
+        "bytes": 4386482,
+        "sha256": "64f12314f9df2348f0fd6cdbee9efb0f1ebfc286034560e207be5efc4108a368",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/fr-Spk1_woman.pt",
+        "path": "voices/fr-Spk1_woman.pt",
+        "bytes": 4272170,
+        "sha256": "b1425e8b7fab2fb03d400ca23d672ca96dbbb6b7b000e52332117f2fece33077",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/it-Spk0_woman.pt",
+        "path": "voices/it-Spk0_woman.pt",
+        "bytes": 2552026,
+        "sha256": "1a838184c0304802c696bac887d15a8143539fbb0b5371fe53de66059a010f3d",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/it-Spk1_man.pt",
+        "path": "voices/it-Spk1_man.pt",
+        "bytes": 2854514,
+        "sha256": "349ce0d28e93ea8b1df55800527f3a8ba8a55bb9e88990841db1bc9ee424519a",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/nl-Spk0_man.pt",
+        "path": "voices/nl-Spk0_man.pt",
+        "bytes": 3704498,
+        "sha256": "70e9221ed11737e2b32af3ccfebb673bd1122f9f9ea8d357efd91e9f3b8e8f72",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/nl-Spk1_woman.pt",
+        "path": "voices/nl-Spk1_woman.pt",
+        "bytes": 5095874,
+        "sha256": "76bfd3c13bb9d61760f6146c4eadc032e9d19ddecd4eed6832bc323a8cb5e8c5",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/pl-Spk0_man.pt",
+        "path": "voices/pl-Spk0_man.pt",
+        "bytes": 3750522,
+        "sha256": "6c06a9e251ab08ade328dfe16e01eb6f5ddc4ba9c66695a73e3aae8a919396bd",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/pl-Spk1_woman.pt",
+        "path": "voices/pl-Spk1_woman.pt",
+        "bytes": 4978626,
+        "sha256": "4a30782a49635f0e60247529b4557cd39713fd158ce2f99bea2ac506bffe7427",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/pt-Spk0_woman.pt",
+        "path": "voices/pt-Spk0_woman.pt",
+        "bytes": 2268290,
+        "sha256": "40f3a231e011f9c5e1eb4e852599751ce749439edceb36d0fa2bca952387f5a9",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/pt-Spk1_man.pt",
+        "path": "voices/pt-Spk1_man.pt",
+        "bytes": 3554890,
+        "sha256": "06a0052170a4ae5217931eb84318a6f86279439b536ad9780c724526d84148e5",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/sp-Spk0_woman.pt",
+        "path": "voices/sp-Spk0_woman.pt",
+        "bytes": 4243906,
+        "sha256": "a8b2c54cfe9b46a711642a96cdcc49545140374ae769cc62cf89c593c38b13c0",
+        "license": "MIT"
+      },
+      {
+        "source": "url",
+        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/sp-Spk1_man.pt",
+        "path": "voices/sp-Spk1_man.pt",
+        "bytes": 5130522,
+        "sha256": "9857e3c03334b1934d34dd3aed8b36cb1e6a09367e99c9e164cd3cd8f091edcb",
+        "license": "MIT"
+      }
+    ]
+  }
+}
