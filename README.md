@@ -6,7 +6,9 @@
 
 여러 화자가 주고받는 긴 대화나 참조 목소리 복제가 필요하면 [VibeVoice-1.5B 플러그인](https://github.com/promboard-app/vibevoice)을 씁니다(영어 · 중국어). 이 플러그인은 한 화자를 빠르게 읽고, 한국어 실험 목소리가 있습니다.
 
-<!-- RESULT-HERO -->
+![한국어 실험 목소리로 읽은 글의 파형 · 스펙트로그램](docs/ko/hero.png)
+
+한국어 실험 목소리(kr-Spk0_woman)에 기본 설정으로 글 한 단락을 읽힌 결과입니다. 위 띠는 파형, 아래 띠는 스펙트로그램(가로 = 시간, 세로 = 소리 높낮이, 밝을수록 큰 소리)입니다. 듣기: [결과](docs/ko/audio/korean-spk0.mp3?raw=true) (링크를 누르면 mp3 를 내려받습니다 — GitHub 화면은 소리를 재생하지 않습니다.)
 
 - 플러그인 id: `promboard.vibevoice-realtime`
 - 필요한 앱: PromBoard 1.0.3 이상
@@ -24,7 +26,7 @@
 
 ## 필요한 그래픽카드 메모리
 
-<!-- RESULT-VRAM -->
+실측 최대 약 2.9GB(RTX 4070 SUPER 12GB, 글 84자). 매니저에는 여유를 두어 4GB 로 적었습니다. CPU 로는 돌리지 않습니다(공식 예제는 CPU 를 받지만 이 플러그인은 그래픽카드에서만 시험할 계획이었고, 시험하지 않은 경로는 열지 않았습니다).
 
 ## 쓰는 법
 
@@ -49,7 +51,15 @@
 
 ## 실측
 
-<!-- RESULT-MEASURE -->
+Windows 11 · RTX 4070 SUPER 12GB · PromBoard 격리 서버에서 노드를 앱 경로 그대로 한 번 돌렸습니다.
+
+| 경우 | 글 | 만든 소리 | 만들기 | 모델 올리기 | 그래픽카드 메모리 최대 | 듣기 |
+|---|---|---|---|---|---|---|
+| 한국어(실험) · 여 · Spk0 · 기본 설정 | 84자 | 11.9초 | 16.7초 | 22.2초(첫 실행) | 약 2.9GB | [듣기](docs/ko/audio/korean-spk0.mp3?raw=true) |
+
+- 노드를 누른 뒤 결과까지 85초(실행 환경 켜기 · 모델 올리기 포함, 같은 실행 환경에서 다음 실행은 만들기 시간만 듭니다).
+- 받아쓰기(Whisper)로 글과 맞춰 보지는 않았습니다. 한국어는 공식 카드가 '실험'이라 적은 목소리입니다.
+- 영어 목소리 · 다른 실험 언어는 돌려 보지 않았습니다.
 
 ## 라이선스와 조건
 
@@ -69,6 +79,7 @@ nodes/vibevoice/              담아 온 공식 vibevoice 패키지(MIT, 위 두
 nodes/requirements.in         직접 쓰는 패키지
 nodes/requirements-*.txt      운영체제별 해시 잠금 파일(uv pip compile --generate-hashes, Python 3.12)
 docs/                         이 README 의 그림 · 소리(ko · en). 플러그인 zip 에는 넣지 않는다
+docs/scripts/                 위 그림 · mp3 를 노드 결과 WAV 로 다시 만드는 스크립트(make_visuals.py)와 설정(hero.json)
 ```
 
 레지스트리에 올리는 zip 은 PromBoard 앱 저장소의 `server/src/tools/packPlugin.ts` 로 만듭니다. `git archive HEAD` 로 꺼낸 폴더를 넘기면 `.gitattributes` 의 `export-ignore` 로 `docs/` 가 빠집니다.
@@ -81,7 +92,9 @@ docs/                         이 README 의 그림 · 소리(ko · en). 플러�
 
 For long conversations between several speakers or cloning a reference voice, use the [VibeVoice-1.5B plugin](https://github.com/promboard-app/vibevoice) (English and Chinese). This plugin reads one speaker quickly and has experimental Korean voices.
 
-<!-- RESULT-HERO-EN -->
+![Waveform and spectrogram of a paragraph read with the experimental Korean voice](docs/en/hero.png)
+
+One paragraph read with the experimental Korean voice (kr-Spk0_woman) at default settings. The upper strip is the waveform and the lower strip is the spectrogram (time to the right, pitch upward, brighter = louder). Listen: [result](docs/en/audio/korean-spk0.mp3?raw=true) (The links download the mp3 files; GitHub does not play audio on the page.)
 
 - Plugin id: `promboard.vibevoice-realtime`
 - Requires PromBoard 1.0.3 or later
@@ -99,7 +112,7 @@ For long conversations between several speakers or cloning a reference voice, us
 
 ### GPU memory
 
-<!-- RESULT-VRAM-EN -->
+Measured peak about 2.9 GB (RTX 4070 SUPER 12 GB, 84 characters). The manager lists 4 GB to leave headroom. CPU is not enabled (the official example accepts CPU, but this plugin was only tested on a GPU and untested paths are left closed).
 
 ### Use
 
@@ -111,7 +124,15 @@ The `vibevoice` package from the official [microsoft/VibeVoice](https://github.c
 
 ### Measured
 
-<!-- RESULT-MEASURE-EN -->
+One run of the node through the app path on Windows 11 · RTX 4070 SUPER 12 GB · an isolated PromBoard server.
+
+| Case | Text | Audio | Generate | Model load | Peak GPU memory | Listen |
+|---|---|---|---|---|---|---|
+| Korean (experimental) · female · Spk0 · default settings | 84 chars | 11.9 s | 16.7 s | 22.2 s (first run) | about 2.9 GB | [listen](docs/en/audio/korean-spk0.mp3?raw=true) |
+
+- 85 s from pressing the node to the result (including starting the runtime and loading the model; later runs in the same runtime take only the generate time).
+- The audio was not checked against the text with a transcription (Whisper). Korean is a voice the official card calls experimental.
+- English voices and the other experimental languages were not run.
 
 ### License and conditions
 

@@ -3,7 +3,7 @@
   "id": "promboard.vibevoice-realtime",
   "version": "1.0.0",
   "name": "VibeVoice-Realtime-0.5B — 한 화자 빠른 목소리 (영어 · 한국어 등 실험 목소리)",
-  "description": "글을 읽어 한 화자의 목소리(WAV)를 빠르게 만든다. 공식 프리셋 목소리 25개(영어 7 + 한국어 · 일본어 · 독일어 등 9개 언어 실험 목소리 각 2)에서 고른다. 여러 화자가 주고받는 긴 대화 · 참조 목소리 복제는 'VibeVoice-1.5B' 플러그인을 쓴다(영어 · 중국어). Microsoft 공식 가중치 VibeVoice-Realtime-0.5B(2GB, MIT)와 공식 실행 코드를 쓴다. 공식 카드는 영어용이라고 적고, 다른 언어 목소리는 '실험'이다. 연구 목적 사용으로 한정된다.",
+  "description": "글을 읽어 한 화자의 목소리(WAV)를 빠르게 만든다. 공식 프리셋 목소리 17개(영어 7 + 한국어 실험 2 + 일본어 · 독일어 등 8개 언어 실험 각 1)에서 고른다. 여러 화자가 주고받는 긴 대화 · 참조 목소리 복제는 'VibeVoice-1.5B' 플러그인을 쓴다(영어 · 중국어). Microsoft 공식 가중치 VibeVoice-Realtime-0.5B(2GB, MIT)와 공식 실행 코드를 쓴다. 공식 카드는 영어용이라고 적고, 다른 언어 목소리는 '실험'이다. 연구 목적 사용으로 한정된다.",
   "author": "PromBoard",
   "license": "Apache-2.0",
   "app": ">=1.0.3",

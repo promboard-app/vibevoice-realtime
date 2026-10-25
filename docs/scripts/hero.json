@@ -1,0 +1,26 @@
+{
+ "title": {
+  "ko": "VibeVoice-Realtime-0.5B · 한국어 실험 목소리(kr-Spk0_woman)",
+  "en": "VibeVoice-Realtime-0.5B · experimental Korean voice (kr-Spk0_woman)"
+ },
+ "items": [
+  {
+   "wav": "ko-spk0.wav",
+   "name": "korean-spk0",
+   "label": {
+    "ko": "한국어(실험) · 여 · Spk0 · 기본 설정(CFG 1.5 · 확산 5단계 · 시드 42)",
+    "en": "Korean (experimental) · female · Spk0 · default settings (CFG 1.5 · 5 diffusion steps · seed 42)"
+   },
+   "text": "오늘 아침 공원에는 안개가 옅게 깔려 있었고, 호숫가를 따라 오리 가족이 천천히 헤엄쳐 지나갔습니다. 바람이 잔잔해서 산책하기에 딱 좋은 날씨였습니다.",
+   "meta": {
+    "ko": "11.9초 소리 · 만들기 16.7초",
+    "en": "11.9 s of audio in 16.7 s"
+   }
+  }
+ ],
+ "footer": {
+  "ko": "RTX 4070 SUPER 12GB · 모델 올리기 22.2초(첫 실행) · 그래픽카드 메모리 최대 약 2.9GB",
+  "en": "RTX 4070 SUPER 12 GB · model load 22.2 s (first run) · peak GPU memory about 2.9 GB"
+ },
+ "out": "hero.png"
+}
