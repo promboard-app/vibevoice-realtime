@@ -2,7 +2,7 @@
 
 [English](#english)
 
-글을 읽어 한 화자의 목소리(WAV)를 빠르게 만드는 PromBoard 커뮤니티 플러그인입니다. Microsoft 의 오픈 모델 [VibeVoice-Realtime-0.5B](https://huggingface.co/microsoft/VibeVoice-Realtime-0.5B)를 이 PC 에서 돌립니다. 공식 프리셋 목소리 25개(영어 7개 + 한국어 · 일본어 · 독일어 등 9개 언어 실험 목소리 각 2개)에서 고릅니다. **공식 카드와 달리 이 경로에는 AI 안내 음성 · 워터마크가 들어가지 않습니다 — 만든 소리를 공개할 때는 AI 음성임을 직접 밝혀 주세요.**
+글을 읽어 한 화자의 목소리(WAV)를 빠르게 만드는 PromBoard 커뮤니티 플러그인입니다. Microsoft 의 오픈 모델 [VibeVoice-Realtime-0.5B](https://huggingface.co/microsoft/VibeVoice-Realtime-0.5B)를 이 PC 에서 돌립니다. 공식 프리셋 목소리 17개(영어 7개 + 한국어 실험 목소리 2개 + 일본어 · 독일어 등 8개 언어 실험 목소리 각 1개)에서 고릅니다. **공식 카드와 달리 이 경로에는 AI 안내 음성 · 워터마크가 들어가지 않습니다 — 만든 소리를 공개할 때는 AI 음성임을 직접 밝혀 주세요.**
 
 여러 화자가 주고받는 긴 대화나 참조 목소리 복제가 필요하면 [VibeVoice-1.5B 플러그인](https://github.com/promboard-app/vibevoice)을 씁니다(영어 · 중국어). 이 플러그인은 한 화자를 빠르게 읽고, 한국어 실험 목소리가 있습니다.
 
@@ -19,7 +19,7 @@
 |---|---|---|---|
 | VibeVoice-Realtime-0.5B 공식 가중치 | [microsoft/VibeVoice-Realtime-0.5B](https://huggingface.co/microsoft/VibeVoice-Realtime-0.5B) | 2.04GB | MIT |
 | 글 토크나이저(Qwen2.5-0.5B 의 토크나이저 파일만) | [Qwen/Qwen2.5-0.5B](https://huggingface.co/Qwen/Qwen2.5-0.5B) | 11MB | Apache-2.0 |
-| 목소리 프리셋 25개 | 공식 저장소 [microsoft/VibeVoice](https://github.com/microsoft/VibeVoice/tree/16fb2cb1217c9934a886e1948ffb06120caa2df5/demo/voices/streaming_model) `demo/voices/streaming_model`(커밋 16fb2cb)의 파일을 이 저장소 [릴리스 voices-16fb2cb](https://github.com/promboard-app/vibevoice-realtime/releases/tag/voices-16fb2cb)로 다시 올린 것(내용 그대로, sha256 고정) | 100MB | MIT |
+| 목소리 프리셋 17개 | 공식 저장소 [microsoft/VibeVoice](https://github.com/microsoft/VibeVoice/tree/16fb2cb1217c9934a886e1948ffb06120caa2df5/demo/voices/streaming_model) `demo/voices/streaming_model`(커밋 16fb2cb)의 파일을 이 저장소 [릴리스 voices-16fb2cb](https://github.com/promboard-app/vibevoice-realtime/releases/tag/voices-16fb2cb)로 다시 올린 것(내용 그대로, sha256 고정) | 65MB | MIT |
 | 파이썬 패키지(PyTorch 2.8 · transformers 4.51.3 · diffusers 등) | PyPI · PyTorch | 약 3GB(다른 플러그인과 같은 PyTorch 는 다시 받지 않습니다) | 각 패키지 |
 
 ## 필요한 그래픽카드 메모리
@@ -32,7 +32,7 @@
 
 | 설정 | 기본 | 뜻 |
 |---|---|---|
-| 목소리 | 영어 · 여 · Emma | 공식 프리셋 25개. '실험' 목소리는 그 언어로 쓴 글을 읽힙니다 |
+| 목소리 | 영어 · 여 · Emma | 공식 프리셋 25개 중 17개(플러그인 하나가 받을 파일은 20개까지라 한국어 외 실험 언어는 Spk0 하나씩). '실험' 목소리는 그 언어로 쓴 글을 읽힙니다 |
 | 설명 따르기 (CFG) | 1.5 | 클수록 글 · 목소리를 더 강하게 따릅니다(1~3). 공식 예제 기본값 |
 | 확산 단계 | 5 | 소리 조각마다 확산 단계 수(2~20). 공식 예제 값 |
 | 시드 | 42 | 같은 시드 · 같은 입력이면 같은 결과가 나옵니다 |
@@ -77,7 +77,7 @@ docs/                         이 README 의 그림 · 소리(ko · en). 플러�
 
 ## English
 
-**VibeVoice-Realtime-0.5B — fast single-speaker voice** is a PromBoard community plugin that reads text in one voice (WAV) with Microsoft's open [VibeVoice-Realtime-0.5B](https://huggingface.co/microsoft/VibeVoice-Realtime-0.5B), running on this PC. Pick one of 25 official preset voices (7 English, plus 2 experimental voices each for Korean, Japanese, German, French, Italian, Dutch, Polish, Portuguese and Spanish). **Unlike what the official card says, this path adds no audible AI disclaimer or watermark — disclose that the audio is AI-generated when you publish it.**
+**VibeVoice-Realtime-0.5B — fast single-speaker voice** is a PromBoard community plugin that reads text in one voice (WAV) with Microsoft's open [VibeVoice-Realtime-0.5B](https://huggingface.co/microsoft/VibeVoice-Realtime-0.5B), running on this PC. Pick one of 17 official preset voices (7 English, 2 experimental Korean voices, and 1 experimental voice each for Japanese, German, French, Italian, Dutch, Polish, Portuguese and Spanish). **Unlike what the official card says, this path adds no audible AI disclaimer or watermark — disclose that the audio is AI-generated when you publish it.**
 
 For long conversations between several speakers or cloning a reference voice, use the [VibeVoice-1.5B plugin](https://github.com/promboard-app/vibevoice) (English and Chinese). This plugin reads one speaker quickly and has experimental Korean voices.
 
@@ -94,7 +94,7 @@ For long conversations between several speakers or cloning a reference voice, us
 |---|---|---|---|
 | VibeVoice-Realtime-0.5B official weights | [microsoft/VibeVoice-Realtime-0.5B](https://huggingface.co/microsoft/VibeVoice-Realtime-0.5B) | 2.04 GB | MIT |
 | Text tokenizer (tokenizer files of Qwen2.5-0.5B only) | [Qwen/Qwen2.5-0.5B](https://huggingface.co/Qwen/Qwen2.5-0.5B) | 11 MB | Apache-2.0 |
-| 25 voice presets | the files in [microsoft/VibeVoice](https://github.com/microsoft/VibeVoice/tree/16fb2cb1217c9934a886e1948ffb06120caa2df5/demo/voices/streaming_model) `demo/voices/streaming_model` (commit 16fb2cb), re-hosted unchanged in this repo's [release voices-16fb2cb](https://github.com/promboard-app/vibevoice-realtime/releases/tag/voices-16fb2cb) (sha256 pinned) | 100 MB | MIT |
+| 17 voice presets | the files in [microsoft/VibeVoice](https://github.com/microsoft/VibeVoice/tree/16fb2cb1217c9934a886e1948ffb06120caa2df5/demo/voices/streaming_model) `demo/voices/streaming_model` (commit 16fb2cb), re-hosted unchanged in this repo's [release voices-16fb2cb](https://github.com/promboard-app/vibevoice-realtime/releases/tag/voices-16fb2cb) (sha256 pinned) | 65 MB | MIT |
 | Python packages (PyTorch 2.8, transformers 4.51.3, diffusers, …) | PyPI · PyTorch | about 3 GB (PyTorch shared with other plugins is not downloaded again) | per package |
 
 ### GPU memory
@@ -103,7 +103,7 @@ For long conversations between several speakers or cloning a reference voice, us
 
 ### Use
 
-Add the **VibeVoice 실시간 목소리** node, connect a text node to **읽을 글** (text to read) and press ▷. Up to 5,000 characters (about 5 minutes of audio) per run. Settings: **목소리** (voice, default English · female · Emma; experimental voices read text written in their language), **설명 따르기 (CFG)** (default 1.5, 1–3, the official example value), **확산 단계** (diffusion steps per chunk, default 5, 2–20, the official example value) and **시드** (seed). The setting labels inside the app are in Korean for now (the plugin format takes one language).
+Add the **VibeVoice 실시간 목소리** node, connect a text node to **읽을 글** (text to read) and press ▷. Up to 5,000 characters (about 5 minutes of audio) per run. Settings: **목소리** (voice, default English · female · Emma; 17 of the 25 official presets, because a plugin can download at most 20 files: Spk0 only for the experimental languages other than Korean; experimental voices read text written in their language), **설명 따르기 (CFG)** (default 1.5, 1–3, the official example value), **확산 단계** (diffusion steps per chunk, default 5, 2–20, the official example value) and **시드** (seed). The setting labels inside the app are in Korean for now (the plugin format takes one language).
 
 ### Code path
 

@@ -100,64 +100,32 @@
               "label": "일본어(실험) · 남 · Spk0"
             },
             {
-              "value": "jp-Spk1_woman",
-              "label": "일본어(실험) · 여 · Spk1"
-            },
-            {
               "value": "de-Spk0_man",
               "label": "독일어(실험) · 남 · Spk0"
-            },
-            {
-              "value": "de-Spk1_woman",
-              "label": "독일어(실험) · 여 · Spk1"
             },
             {
               "value": "fr-Spk0_man",
               "label": "프랑스어(실험) · 남 · Spk0"
             },
             {
-              "value": "fr-Spk1_woman",
-              "label": "프랑스어(실험) · 여 · Spk1"
-            },
-            {
               "value": "it-Spk0_woman",
               "label": "이탈리아어(실험) · 여 · Spk0"
-            },
-            {
-              "value": "it-Spk1_man",
-              "label": "이탈리아어(실험) · 남 · Spk1"
             },
             {
               "value": "nl-Spk0_man",
               "label": "네덜란드어(실험) · 남 · Spk0"
             },
             {
-              "value": "nl-Spk1_woman",
-              "label": "네덜란드어(실험) · 여 · Spk1"
-            },
-            {
               "value": "pl-Spk0_man",
               "label": "폴란드어(실험) · 남 · Spk0"
-            },
-            {
-              "value": "pl-Spk1_woman",
-              "label": "폴란드어(실험) · 여 · Spk1"
             },
             {
               "value": "pt-Spk0_woman",
               "label": "포르투갈어(실험) · 여 · Spk0"
             },
             {
-              "value": "pt-Spk1_man",
-              "label": "포르투갈어(실험) · 남 · Spk1"
-            },
-            {
               "value": "sp-Spk0_woman",
               "label": "스페인어(실험) · 여 · Spk0"
-            },
-            {
-              "value": "sp-Spk1_man",
-              "label": "스페인어(실험) · 남 · Spk1"
             }
           ]
         },
@@ -342,26 +310,10 @@
       },
       {
         "source": "url",
-        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/jp-Spk1_woman.pt",
-        "path": "voices/jp-Spk1_woman.pt",
-        "bytes": 4637994,
-        "sha256": "d7a3f5ca602912152c483516bc0198ea13765affd6fbf16fc1bed5e91e1cbbda",
-        "license": "MIT"
-      },
-      {
-        "source": "url",
         "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/de-Spk0_man.pt",
         "path": "voices/de-Spk0_man.pt",
         "bytes": 7039666,
         "sha256": "ba2c3e06c52ca02a851326d8a354188c8cafe4543c717d8beb8b64fe3466913a",
-        "license": "MIT"
-      },
-      {
-        "source": "url",
-        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/de-Spk1_woman.pt",
-        "path": "voices/de-Spk1_woman.pt",
-        "bytes": 5290778,
-        "sha256": "11b4fa505f7d636af7047632793fe639b1e826d46fc6c00d64dacdcf0805ad72",
         "license": "MIT"
       },
       {
@@ -374,26 +326,10 @@
       },
       {
         "source": "url",
-        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/fr-Spk1_woman.pt",
-        "path": "voices/fr-Spk1_woman.pt",
-        "bytes": 4272170,
-        "sha256": "b1425e8b7fab2fb03d400ca23d672ca96dbbb6b7b000e52332117f2fece33077",
-        "license": "MIT"
-      },
-      {
-        "source": "url",
         "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/it-Spk0_woman.pt",
         "path": "voices/it-Spk0_woman.pt",
         "bytes": 2552026,
         "sha256": "1a838184c0304802c696bac887d15a8143539fbb0b5371fe53de66059a010f3d",
-        "license": "MIT"
-      },
-      {
-        "source": "url",
-        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/it-Spk1_man.pt",
-        "path": "voices/it-Spk1_man.pt",
-        "bytes": 2854514,
-        "sha256": "349ce0d28e93ea8b1df55800527f3a8ba8a55bb9e88990841db1bc9ee424519a",
         "license": "MIT"
       },
       {
@@ -406,26 +342,10 @@
       },
       {
         "source": "url",
-        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/nl-Spk1_woman.pt",
-        "path": "voices/nl-Spk1_woman.pt",
-        "bytes": 5095874,
-        "sha256": "76bfd3c13bb9d61760f6146c4eadc032e9d19ddecd4eed6832bc323a8cb5e8c5",
-        "license": "MIT"
-      },
-      {
-        "source": "url",
         "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/pl-Spk0_man.pt",
         "path": "voices/pl-Spk0_man.pt",
         "bytes": 3750522,
         "sha256": "6c06a9e251ab08ade328dfe16e01eb6f5ddc4ba9c66695a73e3aae8a919396bd",
-        "license": "MIT"
-      },
-      {
-        "source": "url",
-        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/pl-Spk1_woman.pt",
-        "path": "voices/pl-Spk1_woman.pt",
-        "bytes": 4978626,
-        "sha256": "4a30782a49635f0e60247529b4557cd39713fd158ce2f99bea2ac506bffe7427",
         "license": "MIT"
       },
       {
@@ -438,26 +358,10 @@
       },
       {
         "source": "url",
-        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/pt-Spk1_man.pt",
-        "path": "voices/pt-Spk1_man.pt",
-        "bytes": 3554890,
-        "sha256": "06a0052170a4ae5217931eb84318a6f86279439b536ad9780c724526d84148e5",
-        "license": "MIT"
-      },
-      {
-        "source": "url",
         "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/sp-Spk0_woman.pt",
         "path": "voices/sp-Spk0_woman.pt",
         "bytes": 4243906,
         "sha256": "a8b2c54cfe9b46a711642a96cdcc49545140374ae769cc62cf89c593c38b13c0",
-        "license": "MIT"
-      },
-      {
-        "source": "url",
-        "url": "https://github.com/promboard-app/vibevoice-realtime/releases/download/voices-16fb2cb/sp-Spk1_man.pt",
-        "path": "voices/sp-Spk1_man.pt",
-        "bytes": 5130522,
-        "sha256": "9857e3c03334b1934d34dd3aed8b36cb1e6a09367e99c9e164cd3cd8f091edcb",
         "license": "MIT"
       }
     ]
